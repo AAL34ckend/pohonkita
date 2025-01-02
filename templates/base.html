@@ -18,10 +18,10 @@
             <a href="/" class="flex items-center"><img src="/static/images/logo.png" /></a>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8 text-white">
-            <a href="#" class="px-3 py-2 text-sm font-medium">Home</a>
-            <a href="#" class="px-3 py-2 text-sm font-medium">Leaderboard</a>
-            <a href="#" class="px-3 py-2 text-sm font-medium">Goals</a>
-            <a href="#" class="px-3 py-2 text-sm font-medium">About Us</a>
+            <a href="{{ url_for('index') }}" class="px-3 py-2 text-sm font-medium">Home</a>
+            <a href="#leaderboard" class="px-3 py-2 text-sm font-medium">Leaderboard</a>
+            <a href="#goals" class="px-3 py-2 text-sm font-medium">Goals</a>
+            <a href="#aboutus" class="px-3 py-2 text-sm font-medium">About Us</a>
           </div>
           <div class="flex items-center">
             <a href="{{ url_for('login') }}" class="!rounded-full bg-[#2FB95D] text-white px-8 py-2 text-sm font-medium hover:bg-custom/90 transition-colors radius">Login</a>

@@ -6,7 +6,9 @@ from numpy import ceil
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_migrate import Migrate
-from models import db, User, Tree, Status, ActivityLog, get_leaderboard, get_dashboard_summary, Submission, get_user_activity_logs, get_admin_activity_logs
+from models import db, User, Tree, get_leaderboard, get_dashboard_summary, Submission, get_user_activity_logs, get_admin_activity_logs
+
+
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -73,11 +75,6 @@ def logout():
 def index():
     return render_template('index.html')
 
-# USER DASHBOARD
-from flask import render_template, request, session, redirect, url_for
-from datetime import datetime
-from math import ceil
-from models import db, Submission, Tree
 
 @app.route('/dashboard')
 def dashboard():
@@ -254,22 +251,18 @@ def leaderboard():
 
 def get_leaderboard(user_id):
     # Ambil data leaderboard berdasarkan jumlah pohon yang di-approve
-    top_users = db.session.query(
-        User.name, 
-        db.func.count(Submission.id).label('approved_trees')
-    ) \
-    .join(Submission, User.id == Submission.user_id) \
-    .filter(Submission.status == 'approved') \
-    .group_by(User.id) \
-    .having(db.func.count(Submission.id) > 0) \
-    .order_by(db.func.count(Submission.id).desc()) \
-    .limit(10).all()
+    top_users = (
+        db.session.query(User.name, db.func.sum(Submission.required_seeds).label('total_trees'))
+        .join(Submission, User.id == Submission.user_id)
+        .filter(Submission.status == 'approved')
+        .group_by(User.id)
+        .order_by(db.desc('total_trees'))
+        .limit(3)
+        .all()
+    )
 
     # Ambil data pengguna saat ini berdasarkan user_id
-    current_user = db.session.query(
-        User.name, 
-        db.func.count(Submission.id).label('approved_trees')
-    ) \
+    current_user = db.session.query(User.name, db.func.sum(Submission.required_seeds).label('approved_trees')) \
     .join(Submission, User.id == Submission.user_id) \
     .filter(Submission.status == 'approved') \
     .filter(User.id == user_id) \
@@ -296,8 +289,6 @@ def get_leaderboard(user_id):
     }
 
     return leaderboard_data
-
-
 
 
 @app.route('/dashboard/about', methods=['GET'])
