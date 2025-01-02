@@ -1,0 +1,88 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+  <main class="flex-1 p-4 sm:pl-64 pt-16">
+    <div class="px-4 sm:px-6 lg:px-8 py-8">
+      <div class="container mx-auto">
+        <div class="sm:flex-auto mb-8">
+          <h1 class="text-xl sm:text-2xl font-semibold text-gray-900">Kelola User</h1>
+          <p class="mt-2 text-sm text-gray-700">"Kelola data dan hak akses pengguna di sini."</p>
+        </div>
+
+        <!-- Table for medium screens and above -->
+        <div class="hidden sm:block overflow-x-auto">
+          <table class="w-full border-collapse border">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-left">Name</th>
+                <th class="px-4 py-2 text-left">Email</th>
+                <th class="px-4 py-2 text-left">Status</th>
+                <th class="px-4 py-2 text-left">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+                <tr class="border-t">
+                  <td class="px-4 py-2">{{ user.name }}</td>
+                  <td class="px-4 py-2">{{ user.email }}</td>
+                  <td class="px-4 py-2">
+                    <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-sm">{{ user.status }}</span>
+                  </td>
+                  <td class="px-4 py-2">
+                    <form method="POST" class="inline" action="{{ url_for('deleteUser', user_id=user.id) }}">
+                      <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm transition duration-300 ease-in-out">Hapus User</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Card layout for small screens -->
+        <div class="sm:hidden space-y-4">
+          {% for user in users %}
+            <div class="bg-white shadow rounded-lg p-4 border">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold">{{ user.name }}</h3>
+                <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-xs">{{ user.status }}</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">{{ user.email }}</p>
+              <form method="POST" action="{{ url_for('deleteUser', user_id=user.id) }}">
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm transition duration-300 ease-in-out">Hapus User</button>
+              </form>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    document.querySelectorAll('.action-btn').forEach((button) => {
+      button.addEventListener('click', function () {
+        const action = this.dataset.action
+        const userId = this.dataset.userId
+    
+        if (action === 'detail') {
+          openModal(userId) // Dynamically fetch user details
+        } else {
+          if (confirm(`Are you sure you want to ${action} this user?`)) {
+            fetch('/admin/userManager', {
+              method: 'POST',
+              body: JSON.stringify({ user_id: userId, action }),
+              headers: { 'Content-Type': 'application/json' }
+            }).then((response) => {
+              if (response.ok) {
+                location.reload()
+              } else {
+                alert('Failed to perform action')
+              }
+            })
+          }
+        }
+      })
+    })
+  </script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+  <main class="mx-auto">
+    <div class="px-8 py-6">
+      <div class="flex justify-between items-center mb-8 space-x-4">
+        <a href="{{ url_for('treeManagements') }}" class="flex items-center text-gray-600 hover:text-custom transition-colors"><i class="fas fa-arrow-left mr-2"></i>Kembali</a><h1 class="text-2xl font-bold">Detail Pohon</h1>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+              <img src="{{ url_for('static', filename='uploads/' + tree.image) }}" alt="Pohon Mangga" class="w-full h-96 object-cover rounded-lg shadow-sm" />
+            </div>
+            <div class="md:w-1/2">
+              <h2 class="text-2xl font-bold mb-4">{{ tree.name }}</h2><div class="space-y-4 mb-6">
+                <div>
+                  <p class="text-gray-600 mb-1">Jenis Pohon:</p>
+                  <p class="font-medium">{{ tree.jenis }}</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 mb-1">Tinggi Rata-rata:</p>
+                  <p class="font-medium">{{ tree.rata_rata_tumbuh }}</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 mb-1">Waktu Tumbuh:</p>
+                  <p class="font-medium">{{ tree.waktu_tumbuh }}</p>
+                </div>
+                <div>
+                  <p class="text-gray-600 mb-1">Manfaat:</p>
+                  <ul class="list-disc pl-5">
+                    <li>{{ tree.manfaat }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

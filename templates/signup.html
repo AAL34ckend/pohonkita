@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="id"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PohonKita - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-[#004D40] fixed w-full z-50">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img class="h-8 w-auto" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PohonKita"/>
+                        <span class="ml-2 text-white font-semibold text-lg">PohonKita</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Menanam</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Papan Peringkat</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tujuan</a>
+                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tentang Kami</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <button class="!rounded-button bg-custom hover:bg-custom/90 text-white font-medium py-2 px-4 text-sm">Masuk</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md">
+            <div class="bg-white px-8 py-12 shadow-lg rounded-lg">
+                <div class="sm:mx-auto sm:w-full sm:max-w-md">
+                    <h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900">Daftar</h2>
+                    <p class="mt-2 text-center text-sm text-gray-600">Sudah punya akun? <a href="#" class="font-medium text-custom hover:text-custom/90">Masuk disini</a></p>
+                </div>
+                <form class="mt-8 space-y-6" action="#" method="POST">
+                    <div><div><label for="username" class="block text-sm font-medium text-gray-700">Username</label><div class="mt-1"><input id="username" name="username" type="text" autocomplete="username" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-custom focus:outline-none focus:ring-custom sm:text-sm" placeholder="Masukkan username"/></div></div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Alamat email
+                        </label>
+                        <div class="mt-1">
+                            <input id="email" name="email" type="email" autocomplete="email" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-custom focus:outline-none focus:ring-custom sm:text-sm" placeholder="nama@email.com"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">
+                            Kata sandi
+                        </label>
+                        <div class="mt-1 relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-custom focus:outline-none focus:ring-custom sm:text-sm" placeholder="••••••••"/>
+                            <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class="fas fa-eye text-gray-400 hover:text-gray-500" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div><div><label for="confirm-password" class="block text-sm font-medium text-gray-700">Ulangi kata sandi</label><div class="mt-1 relative"><input id="confirm-password" name="confirm-password" type="password" required="" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-custom focus:outline-none focus:ring-custom sm:text-sm" placeholder="••••••••"/><button type="button" onclick="toggleConfirmPassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center"><i class="fas fa-eye text-gray-400 hover:text-gray-500" id="toggleConfirmIcon"></i></button></div></div>
+                    <div>
+                        <button type="submit" class="!rounded-button w-full bg-custom py-2 px-4 text-white font-medium hover:bg-custom/90 focus:outline-none focus:ring-2 focus:ring-custom focus:ring-offset-2">Daftar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>function togglePassword() { const password = document.getElementById('password'); const toggleIcon = document.getElementById('toggleIcon'); if (password.type === 'password') { password.type = 'text'; toggleIcon.classList.remove('fa-eye'); toggleIcon.classList.add('fa-eye-slash'); } else { password.type = 'password'; toggleIcon.classList.remove('fa-eye-slash'); toggleIcon.classList.add('fa-eye'); } } function toggleConfirmPassword() { const password = document.getElementById('confirm-password'); const toggleIcon = document.getElementById('toggleConfirmIcon'); if (password.type === 'password') { password.type = 'text'; toggleIcon.classList.remove('fa-eye'); toggleIcon.classList.add('fa-eye-slash'); } else { password.type = 'password'; toggleIcon.classList.remove('fa-eye-slash'); toggleIcon.classList.add('fa-eye'); } }</script>

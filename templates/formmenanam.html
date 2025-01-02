@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="id"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form Penanaman Pohon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#2E7D32" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="py-6">
+            <div class="flex items-center justify-center mb-8 relative">
+                <a href="#" class="inline-flex items-center text-gray-600 hover:text-gray-900 absolute left-8 top-8">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>Kembali</span>
+                </a>
+                <h1 class="text-2xl font-semibold text-gray-900">Form Penanaman Pohon</h1>
+            </div>
+            <div class="max-w-3xl mx-auto bg-white shadow rounded-lg p-6">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                        <input type="text" required="" class="w-full border-gray-300 focus:border-custom focus:ring-custom !rounded-button" placeholder="Masukkan nama lengkap Anda"/>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Kota Penanaman</label>
+                        <textarea required="" class="w-full border-gray-300 focus:border-custom focus:ring-custom !rounded-button" rows="3" placeholder="Masukkan alamat kota lokasi penanaman"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Rencana Penanaman</label>
+                        <input type="date" required="" class="w-full border-gray-300 focus:border-custom focus:ring-custom !rounded-button"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Bibit</label>
+                        <input type="number" min="1" required="" class="w-full border-gray-300 focus:border-custom focus:ring-custom !rounded-button" placeholder="Masukkan jumlah bibit yang diinginkan"/>
+                    </div>
+                    
+                    <div><div><label class="block text-sm font-medium text-gray-700 mb-2">Bukti Pendukung</label><div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg"><div class="space-y-1 text-center"><svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="flex text-sm text-gray-600"><label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-[#2E7D32] hover:text-[#2E7D32]/90"><span>Upload file</span><input id="file-upload" name="file-upload" type="file" class="sr-only" accept="image/*"/></label><p class="pl-1">atau drag and drop</p></div><p class="text-xs text-gray-500">PNG, JPG, GIF sampai 10MB</p></div></div></div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Catatan Tambahan (Opsional)</label>
+                        <textarea class="w-full border-gray-300 focus:border-custom focus:ring-custom !rounded-button" rows="3" placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                    </div><div class="flex items-start mt-6"><div class="flex items-center h-5"><input type="checkbox" required="" class="h-4 w-4 text-[#2E7D32] border-gray-300 focus:ring-[#2E7D32] !rounded-button"/></div><div class="ml-3"><label class="text-sm text-gray-600">Saya telah membaca dan memahami panduan penanaman pohon</label></div></div>
+                    <button type="submit" class="w-full bg-[#2E7D32] text-white py-3 px-4 !rounded-button hover:bg-[#2E7D32]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2E7D32]">
+                        Kirim Permintaan
+                    </button>
+                </form>
+                <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+                    <h3 class="text-sm font-medium text-gray-900 mb-2">Informasi Penting:</h3>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-2 text-[#2E7D32]"></i>
+                            <span>Proses verifikasi dan persetujuan membutuhkan waktu 2-3 hari kerja</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-[#2E7D32]"></i>
+                            <span>Untuk bantuan, hubungi kami di 021-XXXXXXXX (Senin-Jumat, 09.00-17.00 WIB)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

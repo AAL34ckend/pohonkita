@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - PohonKita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-[#0B3B2D] px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold"><span>Pohon</span><span class="text-[#40C762]">Kita</span></h1>
+            <div class="hidden md:flex space-x-8 text-white">
+                <a href="#" class="hover:text-gray-300">Home</a>
+                <a href="#" class="hover:text-gray-300">Menanam</a>
+                <a href="#" class="hover:text-gray-300">Leaderboard</a>
+                <a href="#" class="hover:text-gray-300">Goals</a>
+                <a href="#" class="hover:text-gray-300">About Us</a>
+            </div>
+            <button class="bg-[#40C762] text-white px-6 py-2 rounded-full hover:bg-opacity-90">Log In</button>
+        </div>
+    </nav>
+
+    <!-- Sign Up Form -->
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+            <div class="text-center">
+                <h2 class="text-3xl text-gray-900 mb-2">Sign Up</h2>
+                <p class="text-gray-600">
+                    Sudah punya akun?
+                    <a href="#" class="text-gray-900 font-semibold hover:underline">Login</a>
+                </p>
+            </div>
+
+            <form class="mt-8 space-y-6">
+                <div>
+                    <label for="email" class="block text-gray-700">Email address</label>
+                    <input type="email" id="email" name="email" required
+                        class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#40C762]" />
+                </div>
+                <div>
+                    <label for="password" class="block text-gray-700">
+                        <span class="flex justify-between">
+                            Password
+                            <button type="button" class="text-gray-500 text-sm flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>Hide
+                            </button>
+                        </span>
+                    </label>
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#40C762]" />
+                </div>
+                <button type="submit"
+                    class="w-full bg-[#40C762] text-white py-3 rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#40C762]">Sign
+                    Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

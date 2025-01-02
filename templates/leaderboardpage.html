@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Dashboard Penanaman | PohonKita</title>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+   <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+   <script
+      src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1">
+   </script>
+   <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#22C55E"
+      data-border-radius="small"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+   <div class="min-h-screen flex">
+      <aside class="w-64 bg-custom text-white">
+         <div class="p-4">
+            <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PohonKita" class="h-8" />
+         </div>
+         <nav class="mt-8">
+            <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5 mb-4">
+               <i class="fas fa-user w-5"></i>
+               <span class="ml-3">Profil Saya</span>
+               <a href="#" class="flex items-center px-6 py-3 bg-white/10">
+                  <i class="fas fa-chart-line w-5"></i>
+                  <span class="ml-3">Dashboard</span>
+               </a>
+               <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                  <i class="fas fa-seedling w-5"></i>
+                  <span class="ml-3">Menanam</span>
+               </a>
+               <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                  <i class="fas fa-trophy w-5"></i>
+                  <span class="ml-3">Leaderboard</span>
+               </a>
+               <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                  <i class="fas fa-info-circle w-5"></i>
+                  <span class="ml-3">Tentang Kami</span>
+               </a>
+         </nav>
+      </aside>
+      <main class="flex-1 overflow-auto">
+         <div class="px-8 py-6">
+            <div class="flex justify-between items-center mb-8">
+               <h1 class="text-2xl font-bold">Leaderboard Penanaman</h1>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+               <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-lg font-semibold">Top Kontributor</h3><select class="border-gray-200 rounded-button">
+                     <option>Bulan Ini</option>
+                     <option>3 Bulan Terakhir</option>
+                     <option>6 Bulan Terakhir</option>
+                     <option>Tahun Ini</option>
+                  </select>
+               </div>
+               <div class="space-y-4">
+                  <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-custom rounded-full flex items-center justify-center text-white font-bold">1
+                     </div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Ahmad Subarjo</h4>
+                        <p class="text-sm text-gray-600">500 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><i class="fas fa-trophy text-yellow-500 mr-2"></i><span
+                           class="font-semibold">500 pohon</span></div>
+                  </div>
+                  <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold">
+                        2</div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Siti Nurhaliza</h4>
+                        <p class="text-sm text-gray-600">450 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><i class="fas fa-trophy text-gray-500 mr-2"></i><span
+                           class="font-semibold">450 pohon</span></div>
+                  </div>
+                  <div class="flex items-center p-4 bg-orange-50 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                        3</div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Budi Santoso</h4>
+                        <p class="text-sm text-gray-600">400 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><i class="fas fa-trophy text-orange-500 mr-2"></i><span
+                           class="font-semibold">400 pohon</span></div>
+                  </div>
+                  <div class="flex items-center p-4 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">
+                        4</div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Dewi Kartika</h4>
+                        <p class="text-sm text-gray-600">350 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><span class="font-semibold">350 pohon</span></div>
+                  </div>
+                  <div class="flex items-center p-4 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">
+                        5</div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Rudi Hermawan</h4>
+                        <p class="text-sm text-gray-600">300 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><span class="font-semibold">300 pohon</span></div>
+                  </div>
+               </div>
+               <div class="mt-6 pt-6 border-t">
+                  <h3 class="text-lg font-semibold mb-4">Peringkat Anda</h3>
+                  <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                     <div
+                        class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">
+                        24</div>
+                     <div class="ml-4 flex-1">
+                        <h4 class="font-semibold">Anda</h4>
+                        <p class="text-sm text-gray-600">50 pohon ditanam</p>
+                     </div>
+                     <div class="flex items-center"><span class="font-semibold">50 pohon</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+   </div>
+   <script>
+      const growthChart = echarts.init(document.getElementById('chartGrowth'));
+      const distributionChart = echarts.init(document.getElementById('chartDistribution'));
+      growthChart.setOption({
+         animation: false,
+         tooltip: {
+            trigger: 'axis'
+         },
+         xAxis: {
+            type: 'category',
+            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+         },
+         yAxis: {
+            type: 'value'
+         },
+         series: [{
+            data: [120, 200, 150, 80, 70, 110],
+            type: 'line',
+            smooth: true,
+            color: '#22C55E'
+         }]
+      });
+      distributionChart.setOption({
+         animation: false,
+         tooltip: {
+            trigger: 'item'
+         },
+         series: [{
+            type: 'pie',
+            radius: ['40%', '70%'],
+            data: [{
+                  value: 40,
+                  name: 'Pohon Buah'
+               },
+               {
+                  value: 35,
+                  name: 'Pohon Peneduh'
+               },
+               {
+                  value: 25,
+                  name: 'Pohon Hias'
+               }
+            ],
+            color: ['#22C55E', '#3B82F6', '#8B5CF6']
+         }]
+      });
+      window.addEventListener('resize', function() {
+         growthChart.resize();
+         distributionChart.resize();
+      });
+   </script>

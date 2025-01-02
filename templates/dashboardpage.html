@@ -1,0 +1,86 @@
+{% extends 'dashboard-base.html' %}
+{% block content %}
+<main class="flex-1 p-4 md:ml-64 pt-16">
+  <div class="max-w-7xl mx-auto">
+    <div class="px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
+        <h1 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-0">Dashboard Penanaman - Mari Hijaukan Bumi!</h1>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+          <h3 class="text-base sm:text-lg font-semibold mb-2">Total Pohon (Target)</h3>
+          <div class="flex items-end gap-2">
+            <span class="text-2xl sm:text-3xl font-bold">{{ total_trees }}/{{ target_trees }}</span>
+            <span class="text-green-500 text-xs sm:text-sm">{{ "%.1f" % ((total_trees / target_trees) * 100) }}% tercapai</span>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+          <h3 class="text-base sm:text-lg font-semibold mb-2">Pohon Bulan Ini</h3>
+          <div class="flex items-end gap-2">
+            <span class="text-2xl sm:text-3xl font-bold">{{ trees_this_month }}</span>
+            <span class="text-green-500 text-xs sm:text-sm">+8% <i class="fas fa-arrow-up"></i></span>
+          </div>
+        </div>
+        
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+          <h3 class="text-base sm:text-lg font-semibold mb-2">Inspirasi Hari Ini</h3>
+          <p class="text-sm text-gray-600 italic">"Menanam satu pohon hari ini adalah investasi untuk masa depan bumi."</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6">
+          <h3 class="text-lg font-semibold mb-2 sm:mb-0">Katalog Pohon</h3>
+          <div class="w-full sm:w-auto">
+            <form method="get" action="{{ url_for('dashboard') }}" class="flex items-center">
+              <select name="jenis" onchange="this.form.submit()" class="w-full sm:w-auto border-gray-200 rounded-full text-sm">
+                {%if selected_jenis == 'semua jenis'%}
+                <option value="Semua Jenis" selected>Semua Jenis</option>
+                {%else%}
+                <option value="Semua Jenis">Semua Jenis</option>
+                {%endif%}
+                {% for jenis in jenis_options %}
+                  <option value="{{ jenis }}" {% if selected_jenis == jenis %}selected{% endif %}>{{ jenis }}</option>
+                {% endfor %}
+              </select>
+            </form>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {% for tree in tree_catalog %}
+          <div class="border rounded-lg overflow-hidden w-full">
+            <img src="{{ url_for('static', filename='uploads/' + tree.image) }}" class="w-full h-40 sm:h-48 object-cover" alt="{{ tree.name }}" />
+            <div class="p-4">
+              <h4 class="font-semibold mb-2">{{ tree.name }}</h4>
+              <p class="text-sm text-gray-600 mb-4">{{ tree.notes }}</p>
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+                <span class="text-xs sm:text-sm bg-green-100 text-green-800 px-2 py-1 rounded">{{ tree.jenis }}</span>
+                <button class="w-full sm:w-auto bg-green-500 text-white px-4 py-2 rounded-full text-sm">Pilih</button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <div class="flex justify-center mt-6">
+          <nav class="flex flex-wrap justify-center gap-2">
+            {% if page > 1 %}
+              <a href="?page={{ page - 1 }}&jenis={{ selected_jenis }}" class="w-8 h-8 flex items-center justify-center rounded border"><i class="fas fa-chevron-left"></i></a>
+            {% endif %}
+            {% for p in range(1, total_pages + 1) %}
+              <a href="?page={{ p }}&jenis={{ selected_jenis }}" class="w-8 h-8 flex items-center justify-center rounded border 
+                 {% if p == page %}bg-green-500 text-white{% endif %}">{{ p }}</a>
+            {% endfor %}
+            {% if page < total_pages %}
+              <a href="?page={{ page + 1 }}&jenis={{ selected_jenis }}" class="w-8 h-8 flex items-center justify-center rounded border"><i class="fas fa-chevron-right"></i></a>
+            {% endif %}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

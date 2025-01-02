@@ -1,0 +1,25 @@
+{% extends 'dashboard-base.html' %}
+{% block content %}
+  <main class="flex-1 p-4 md:ml-64 pt-16">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-center text-4xl font-bold mb-4">
+        <span class="text-[#40C762]">MENANAM</span>
+        <span class="text-[#0B3B2D]">POHON</span>
+      </h1>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Nunc eget congue ante. Vivamus ut sapien et ex volutpat tincidunt eget at felis.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for tree in trees %}
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+            <img src="{{ url_for('static', filename='images/reddoor.png') }}" alt="{{ tree.name }}" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-[#0B3B2D] mb-2">{{ tree.name }}</h3>
+              <p class="text-gray-600 mb-4">{{ tree.jenis }}</p>
+              <a href="{{ url_for('plantDetails', tree_id=tree.id) }}" class="text-[#40C762] hover:underline">Tanam</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}

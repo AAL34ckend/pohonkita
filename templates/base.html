@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PohonKita - Tanam Pohon untuk Masa Depan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+  </head>
+  <body class="font-[Inter]">
+    <nav class="bg-[#043A3A] shadow-sm fixed w-full z-50">
+      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center"><img src="/static/images/logo.png" /></a>
+          </div>
+          <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8 text-white">
+            <a href="#" class="px-3 py-2 text-sm font-medium">Home</a>
+            <a href="#" class="px-3 py-2 text-sm font-medium">Leaderboard</a>
+            <a href="#" class="px-3 py-2 text-sm font-medium">Goals</a>
+            <a href="#" class="px-3 py-2 text-sm font-medium">About Us</a>
+          </div>
+          <div class="flex items-center">
+            <a href="{{ url_for('login') }}" class="!rounded-full bg-[#2FB95D] text-white px-8 py-2 text-sm font-medium hover:bg-custom/90 transition-colors radius">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% block body %}
+
+    {% endblock %}
+    <footer class="bg-[#004D40]">
+      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-white">PohonKita</h3>
+            <p class="text-white">Membangun masa depan yang lebih hijau melalui aksi nyata penanaman pohon.</p>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-white">Program</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white hover:text-custom">Penanaman Komunitas</a>
+              </li>
+              <li>
+                <a href="#" class="text-white hover:text-custom">Edukasi Lingkungan</a>
+              </li>
+              <li>
+                <a href="#" class="text-white hover:text-custom">Konservasi Hutan</a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-white">Perusahaan</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white hover:text-custom">Tentang Kami</a>
+              </li>
+              <li>
+                <a href="#" class="text-white hover:text-custom">Karir</a>
+              </li>
+              <li>
+                <a href="#" class="text-white hover:text-custom">Kontak</a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-white">Ikuti Kami</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-custom"><i class="fab fa-instagram text-xl"></i></a>
+              <a href="#" class="text-white hover:text-custom"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="text-white hover:text-custom"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#" class="text-white hover:text-custom"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

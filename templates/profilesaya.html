@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="id"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard Penanaman | PohonKita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#22C55E" data-border-radius="small"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        <aside class="w-64 bg-custom text-white relative">
+            <div class="p-4">
+                <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PohonKita" class="h-8"/>
+            </div>
+            <nav class="mt-8"><a href="#" class="flex items-center px-6 py-3 bg-white/10 mb-4"><i class="fas fa-user w-5"></i><span class="ml-3">Profil Saya</span></a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-chart-line w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-seedling w-5"></i>
+                    <span class="ml-3">Menanam</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-trophy w-5"></i>
+                    <span class="ml-3">Leaderboard</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-info-circle w-5"></i>
+                    <span class="ml-3">Tentang Kami</span>
+                </a>
+            </nav>
+        </aside>
+        <main class="flex-1 overflow-auto"><div class="px-8 py-6"><div class="flex justify-between items-center mb-8"><h1 class="text-2xl font-bold">Profil Saya</h1></div><div class="bg-white rounded-lg shadow-sm p-6"><div class="max-w-3xl mx-auto"><div class="flex items-center space-x-6 mb-8"><img src="https://creatie.ai/ai/api/search-image?query=professional+headshot+of+Indonesian+male&flag=c4d78af1-8a8b-4702-941c-1f8408f74de2&flag=1aadd9d5-7128-4b74-9d48-f7600ba463e9&flag=1798b11e-8a7e-4c14-a652-cfa61a787b27&flag=02b7bf44-2b97-4f4d-90a2-8d859086c8eb&flag=5a3a230d-56b8-4c88-b6a0-66766c9b0f21" alt="Profile Picture" class="w-32 h-32 rounded-full object-cover border-4 border-custom"/><div><h2 class="text-2xl font-bold">Budi Pratama</h2><p class="text-gray-600">Anggota sejak Januari 2024</p></div></div><div class="grid grid-cols-2 gap-6 mb-8"><div class="bg-gray-50 p-4 rounded-lg text-center"><h3 class="text-3xl font-bold text-custom">127</h3><p class="text-gray-600">Pohon Ditanam</p></div><div class="bg-gray-50 p-4 rounded-lg text-center"><h3 class="text-3xl font-bold text-custom">#42</h3><p class="text-gray-600">Peringkat</p></div></div><div class="space-y-6"><div><h3 class="text-xl font-semibold mb-3">Informasi Pribadi</h3><div class="bg-gray-50 p-4 rounded-lg"><div class="grid grid-cols-2 gap-4"><div><p class="text-gray-600 mb-1">Email:</p><p class="font-medium">budi.pratama@email.com</p></div><div><p class="text-gray-600 mb-1">Lokasi:</p><p class="font-medium">Jakarta Selatan</p></div><div><p class="text-gray-600 mb-1">Bergabung:</p><p class="font-medium">1 Januari 2024</p></div></div></div></div><div><h3 class="text-xl font-semibold mb-3">Aktivitas Terakhir</h3><div class="space-y-4"><div class="bg-gray-50 p-4 rounded-lg"><div class="flex justify-between items-center"><div><p class="font-medium">Menanam Pohon Mangga</p><p class="text-gray-600">Lokasi: Taman Kota</p></div><p class="text-gray-600">2 hari yang lalu</p></div></div><div class="bg-gray-50 p-4 rounded-lg"><div class="flex justify-between items-center"><div><p class="font-medium">Menanam Pohon Rambutan</p><p class="text-gray-600">Lokasi: Sekolah Dasar Maju</p></div><p class="text-gray-600">5 hari yang lalu</p></div></div><div class="bg-gray-50 p-4 rounded-lg"><div class="flex justify-between items-center"><div><p class="font-medium">Menanam Pohon Jambu</p><p class="text-gray-600">Lokasi: Taman Lingkungan</p></div><p class="text-gray-600">1 minggu yang lalu</p></div></div></div></div></div></div></div></div></main>
+    </div>
+    <script>
+        const growthChart = echarts.init(document.getElementById('chartGrowth'));
+        const distributionChart = echarts.init(document.getElementById('chartDistribution'));
+        growthChart.setOption({
+            animation: false,
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [120, 200, 150, 80, 70, 110],
+                type: 'line',
+                smooth: true,
+                color: '#22C55E'
+            }]
+        });
+        distributionChart.setOption({
+            animation: false,
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                data: [
+                    { value: 40, name: 'Pohon Buah' },
+                    { value: 35, name: 'Pohon Peneduh' },
+                    { value: 25, name: 'Pohon Hias' }
+                ],
+                color: ['#22C55E', '#3B82F6', '#8B5CF6']
+            }]
+        });
+        window.addEventListener('resize', function() {
+            growthChart.resize();
+            distributionChart.resize();
+        });
+    </script>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PohonKita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#22C55E" data-border-radius="small"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0B3B2D',
+              secondary: '#40C762'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-primary p-4 flex justify-between items-center fixed top-0 w-full z-50 shadow-md">
+      <a href="{{ url_for('index') }}" class="sm:pl-14 lg:pl-0 pl-14 md:pl-0"><h1 class="text-white text-2xl font-bold"><span>Pohon</span><span class="text-secondary">Kita</span></h1></a>
+      <div class="relative flex items-center gap-5">
+        <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-90 transition-colors shadow-lg" id="dropdownMenuButton">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <div class="absolute top-10 right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 hidden" id="dropdownMenu">
+          <ul class="py-2">
+            <li class="px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer">Akun saya</li>
+            <li class="px-4 py-2 text-gray-800 hover:bg-gray-200 cursor-pointer" onclick="logout()">LOGOUT</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex min-h-screen pt-[64px]">
+      <button id="sidebarToggle" class="fixed top-4 left-4 z-50 p-2 bg-secondary text-white rounded-md md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav id="sidebar" class="w-64 bg-secondary text-white h-screen fixed left-0 z-40 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0">
+        <ul class="flex flex-col space-y-2 p-6">
+          <li>
+            <a href="{{ url_for('adminHome') }}" class="text-xl p-4 rounded-lg block hover:bg-white/10 transition-colors flex items-center space-x-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <span>Beranda</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('adminManageUser') }}" class="text-xl p-4 rounded-lg block hover:bg-white/10 transition-colors flex items-center space-x-3">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                <path d="M14.8086 19.7053L19.127 16.3467M4 21C4 17.134 7.13401 14 11 14M20 18C20 19.6569 18.6569 21 17 21C15.3431 21 14 19.6569 14 18C14 16.3431 15.3431 15 17 15C18.6569 15 20 16.3431 20 18ZM15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Kelola User</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('userSubmission') }}" class="text-xl p-4 rounded-lg block hover:bg-white/10 transition-colors flex items-center space-x-3">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 15.5V11.7586H9V14H17V11.7586H18.5V15.5H7.5Z" fill="#ffffff"></path> <path d="M10.9904 10.1133L12.25 8.85369L12.25 12L13.75 12L13.75 8.85369L15.0096 10.1133L16.0702 9.05261L13 5.98237L9.92976 9.05261L10.9904 10.1133Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H21V19H5V3ZM6.5 4.5H19.5V17.5H6.5V4.5Z" fill="#ffffff"></path> <path d="M2 6V22H18V20.5H3.5V6H2Z" fill="#ffffff"></path>
+              </svg>
+              <span>Pengajuan</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('treeManagements') }}" class="text-xl p-4 rounded-lg block hover:bg-white/10 transition-colors flex items-center space-x-3">
+              <svg fill="#fff" height="24px" width="24px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#fff">
+                <path d="M409.749,283.466c-5.667-1.084-11.143,2.629-12.229,8.294l-19.44,101.389c-1.086,5.667,2.627,11.142,8.295,12.229 c0.665,0.127,1.327,0.189,1.979,0.189c4.912,0,9.291-3.48,10.25-8.484l19.44-101.387 C419.131,290.028,415.417,284.553,409.749,283.466z"></path>
+                <path d="M417.946,240.724c-5.669-1.088-11.142,2.627-12.229,8.294l-1.52,7.928c-1.087,5.667,2.627,11.142,8.294,12.229 c0.665,0.128,1.326,0.189,1.979,0.189c4.913,0,9.291-3.48,10.25-8.483l1.52-7.927C427.327,247.286,423.613,241.81,417.946,240.724 z"></path>
+                <path d="M511.67,437.849l-78.23-408.017c-0.944-4.923-5.249-8.481-10.262-8.481s-9.318,3.558-10.262,8.481l-78.36,408.695 c-0.586,3.059,0.224,6.222,2.208,8.624s4.937,3.792,8.054,3.792h68.023v18.808H243.457v-31.84 c42.908-5.179,76.276-41.791,76.276-86.072c0-47.821-38.904-86.724-86.724-86.724s-86.724,38.904-86.724,86.724 c0,44.282,33.367,80.893,76.276,86.072v31.84H99.263v-10.738c9.505-0.632,21.033-3.374,29.49-11.777 c13.34-13.261,12.457-34.387,11.926-40.189c-0.317-9.089-8.977-10.479-16.151-10.479c-12.972,0-26.836,3.433-35.729,13.498 c-8.909-10.083-22.696-13.334-35.652-13.513c-6.875-0.095-15.308,1.436-16.15,9.701c-0.364,3.281-2.402,26.816,11.849,40.985 c8.466,8.41,20.009,11.149,29.52,11.777v10.736h-7.764c-5.77,0-10.449,4.678-10.449,10.449c0,5.771,4.679,10.449,10.449,10.449 h374.604c5.77,0,10.449-4.678,10.449-10.449c0-5.771-4.679-10.449-10.449-10.449h-11.467v-18.808h67.8 C508.286,450.942,513.368,444.39,511.67,437.849z M104.992,423.331c3.79-3.765,9.997-5.143,14.741-5.623 c-0.565,5.219-2.11,11.123-5.713,14.704c-3.774,3.751-9.947,5.128-14.682,5.615c-0.01-0.142-0.023-0.288-0.034-0.432 C99.901,432.526,101.453,426.849,104.992,423.331z M78.258,438.028c-4.735-0.485-10.906-1.862-14.68-5.613 c-3.644-3.623-5.191-9.522-5.747-14.731c4.725,0.475,10.951,1.85,14.774,5.648c3.541,3.518,5.092,9.187,5.686,14.277 C78.281,437.748,78.267,437.89,78.258,438.028z M273.482,361.009c-4.081-4.08-10.695-4.08-14.778,0.001l-25.699,25.699 l-13.835-13.835c-4.08-4.08-10.694-4.081-14.778-0.001c-4.08,4.08-4.08,10.696,0,14.777l18.164,18.165v11.014 c-31.347-5.024-55.377-32.249-55.377-64.99c0-36.297,29.53-65.827,65.827-65.827c36.297,0,65.827,29.53,65.827,65.827 c0,32.741-24.03,59.967-55.378,64.989v-11.014l30.026-30.027C277.563,371.707,277.563,365.091,273.482,361.009z M357.46,430.045 l65.718-342.756l65.717,342.756H357.46z"></path>
+                <path d="M35.074,469.75H10.449C4.678,469.75,0,474.428,0,480.199c0,5.771,4.678,10.449,10.449,10.449h24.625 c5.77,0,10.449-4.678,10.449-10.449C45.523,474.428,40.845,469.75,35.074,469.75z"></path>
+                <path d="M500.521,469.75H480.73c-5.77,0-10.449,4.678-10.449,10.449c0,5.771,4.679,10.449,10.449,10.449h19.791 c5.77,0,10.449-4.678,10.449-10.449C510.97,474.428,506.292,469.75,500.521,469.75z"></path>
+                <path d="M35.001,127h-24.55c-5.771,0-10.449,4.677-10.449,10.449c0,5.771,4.678,10.449,10.449,10.449h24.55 c5.77,0,10.449-4.678,10.449-10.449C45.45,131.678,40.771,127,35.001,127z"></path>
+                <path d="M276.802,194.05H109.601c-5.77,0-10.449,4.679-10.449,10.449c0,5.771,4.679,10.449,10.449,10.449h167.202 c5.77,0,10.449-4.679,10.448-10.449C287.25,198.729,282.572,194.05,276.802,194.05z"></path>
+                <path d="M74.076,194.05H56.547c-5.77,0-10.449,4.679-10.449,10.449c0,5.771,4.679,10.449,10.449,10.449h17.529 c5.771,0,10.449-4.679,10.449-10.449S79.847,194.05,74.076,194.05z"></path>
+                <path d="M263.184,160.525h-21.819c-5.771,0-10.449,4.679-10.449,10.449c0,5.77,4.678,10.449,10.449,10.449h21.819 c5.77,0,10.449-4.679,10.449-10.449C273.633,165.204,268.954,160.525,263.184,160.525z"></path>
+                <path d="M205.839,160.525H37.69c-5.77,0-10.449,4.679-10.449,10.449c0,5.77,4.679,10.449,10.449,10.449h168.15 c5.77,0,10.449-4.679,10.449-10.449C216.288,165.204,211.609,160.525,205.839,160.525z"></path>
+                <path d="M261.082,38.997c-30.02,0-54.444,24.429-54.444,54.457c0,5.77,4.678,10.449,10.449,10.449 c5.77,0,10.449-4.679,10.449-10.449c0-18.505,15.049-33.559,33.547-33.559c18.505,0,33.559,15.055,33.559,33.559 c0,18.498-15.055,33.547-33.559,33.547H70.527c-5.77,0-10.449,4.677-10.449,10.449c0,5.771,4.679,10.449,10.449,10.449h190.555 c30.027,0,54.457-24.424,54.457-54.444C315.538,63.426,291.109,38.997,261.082,38.997z"></path>
+              </svg>
+              <span>Kelola Pohon</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      {% block content %}
+
+      {% endblock %}
+      {% block extra_js %}
+
+      {% endblock %}
+      <script>
+        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+          var dropdown = document.getElementById('dropdownMenu')
+          dropdown.classList.toggle('hidden') // Toggle visibility
+        })
+        
+        // Menutup dropdown jika klik di luar
+        window.onclick = function (event) {
+          if (!event.target.matches('#dropdownMenuButton')) {
+            var dropdowns = document.getElementsByClassName('hidden')
+            for (const element of dropdowns) {
+              element.classList.add('hidden')
+            }
+          }
+        }
+        function logout() {
+          // Logika untuk logout, misalnya redirect ke route logout
+          window.location.href = "{{ url_for('logout') }}"
+        }
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+          document.getElementById('sidebar').classList.toggle('-translate-x-full')
+        })
+      </script>
+    </div>
+  </body>
+</html>

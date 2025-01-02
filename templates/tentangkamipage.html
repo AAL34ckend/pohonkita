@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Dashboard Penanaman | PohonKita</title>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+   <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+   <script
+      src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1">
+   </script>
+   <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#22C55E"
+      data-border-radius="small"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+   <div class="min-h-screen flex">
+      <aside class="w-64 bg-custom text-white relative">
+         <div class="p-4">
+            <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PohonKita" class="h-8" />
+         </div>
+         <nav class="mt-8">
+            <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5 mb-4">
+               < i class="fas fa-user w-5"></i><span class="ml-3">Profil Saya</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 bg-white/10">
+               <i class="fas fa-chart-line w-5"></i>
+               <span class="ml-3">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+               <i class="fas fa-seedling w-5"></i>
+               <span class="ml-3">Menanam</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+               <i class="fas fa-trophy w-5"></i>
+               <span class="ml-3">Leaderboard</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+               <i class="fas fa-info-circle w-5"></i>
+               <span class="ml-3">Tentang Kami</span>
+            </a>
+         </nav>
+      </aside>
+      <main class="flex-1 overflow-auto">
+         <div class="px-8 py-6">
+            <div class="flex justify-between items-center mb-8">
+               <h1 class="text-2xl font-bold">Tentang Kami</h1>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6">
+               <div class="max-w-3xl mx-auto">
+                  <div class="text-center mb-8"><img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png"
+                        alt="PohonKita" class="h-16 mx-auto mb-4" />
+                     <h2 class="text-2xl font-bold text-custom mb-4">PohonKita</h2>
+                     <p class="text-gray-600">Melestarikan Lingkungan untuk Masa Depan yang Lebih Baik</p>
+                  </div>
+                  <div class="space-y-6">
+                     <div>
+                        <h3 class="text-xl font-semibold mb-3">Visi Kami</h3>
+                        <p class="text-gray-600">Menjadi platform terdepan dalam upaya penghijauan dan pelestarian
+                           lingkungan di Indonesia melalui gerakan penanaman pohon yang berkelanjutan.</p>
+                     </div>
+                     <div>
+                        <h3 class="text-xl font-semibold mb-3">Misi Kami</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                           <li>Memfasilitasi dan mendorong masyarakat untuk berpartisipasi dalam kegiatan penanaman
+                              pohon</li>
+                           <li>Mengedukasi masyarakat tentang pentingnya pelestarian lingkungan</li>
+                           <li>Menciptakan ekosistem yang berkelanjutan melalui program penanaman pohon yang terstruktur
+                           </li>
+                           <li>Berkolaborasi dengan berbagai pihak untuk memperluas dampak positif bagi lingkungan</li>
+                        </ul>
+                     </div>
+                     <div>
+                        <h3 class="text-xl font-semibold mb-3">Tim Kami</h3>
+                        <div class="grid grid-cols-3 gap-6 mb-6"
+                           style="grid-template-columns: repeat(3, 1fr); row-gap: 2rem;">
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian male&width=150&height=150&flag=0ddab1a5-653e-4b6d-97a6-17232c58e93f&flag=69d277a3-0c52-49df-bf44-28f539eaedd8&flag=014425d0-2f8a-4f4e-9d02-4cb4ff418e5b&flag=ee60bb98-e10e-46ac-a3ee-d191b392fe23&flag=8d94875c-5217-4c09-ac5c-d2d989da049a"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="CEO" />
+                              <h4 class="font-semibold">Budi Santoso</h4>
+                              <p class="text-sm text-gray-600">CEO &amp; Founder</p>
+                           </div>
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian female&width=150&height=150&flag=3192f0de-a4eb-4189-bcc1-3745e73b5c3a&flag=2bf741c7-c3ac-403d-9548-25ec8d07d43d&flag=22833fd3-b620-4528-ad1a-a784ddc61ba1&flag=ae2e8254-fb38-4343-819d-7e98b5b59e88&flag=bf2b98cb-ae34-4211-8662-67aeb667ca00"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="COO" />
+                              <h4 class="font-semibold">Siti Rahayu</h4>
+                              <p class="text-sm text-gray-600">COO</p>
+                           </div>
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian male&width=150&height=150&flag=fb1ae365-4d65-4d05-8a31-7e4e6b0c3e61&flag=d8833067-e012-4ae0-bd9e-60d4f0b5deaa&flag=a31a1ff0-3287-4260-8620-e7836ff8a3b2&flag=b5074c4c-8330-41f1-9e87-9935cbbb55b4&flag=9bb33c2a-d3a3-4775-b549-3cd44c99d1d8"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="CTO" />
+                              <h4 class="font-semibold">Ahmad Wijaya</h4>
+                              <p class="text-sm text-gray-600">CTO</p>
+                           </div>
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian female&width=150&height=150&flag=b28490d2-7f6d-419c-ab6a-85a4b36e2b42&flag=844ded51-1ed8-425a-b7e1-c90c353fd814&flag=6c87e2c8-3e41-4b9a-b89f-e473b2b62305&flag=77881a33-2e1f-4dbf-9aef-3d62964e2d79"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="CMO" />
+                              <h4 class="font-semibold">Dewi Kusuma</h4>
+                              <p class="text-sm text-gray-600">CMO</p>
+                           </div>
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian male&width=150&height=150&flag=5f70f032-9083-4238-8acd-9fbed92990fd&flag=4380c9b4-56f3-48bd-9a22-e47ac6259bfe&flag=2708d74b-3c57-4892-8554-beadfca10c1b&flag=e6f3f2c8-2928-43c4-9c49-a7828182c31a"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="CFO" />
+                              <h4 class="font-semibold">Rudi Hartono</h4>
+                              <p class="text-sm text-gray-600">CFO</p>
+                           </div>
+                           <div class="text-center"><img
+                                 src="https://creatie.ai/ai/api/search-image?query=professional headshot of Indonesian female&width=150&height=150&flag=ba4aeec1-bafd-4085-98e2-8bd9a4c19953&flag=c2072cf3-37c7-4ba8-9980-da3b62c157f5&flag=f2fee4aa-73d8-4a2e-8f1e-316d635f5658&flag=1f998bcc-e4c2-4af5-8944-2496aa0c7b35"
+                                 class="w-24 h-24 rounded-full mx-auto mb-2" alt="Head of Design" />
+                              <h4 class="font-semibold">Maya Putri</h4>
+                              <p class="text-sm text-gray-600">Head of Design</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-3">Hubungi Kami</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                           <div class="text-gray-600">
+                              <p class="font-semibold mb-1">Alamat:</p>
+                              <p>Jl. Hijau Raya No. 123<br />Jakarta Selatan, 12345<br />Indonesia</p>
+                           </div>
+                           <div class="text-gray-600">
+                              <p class="font-semibold mb-1">Kontak:</p>
+                              <p>Email: info@pohonkita.id<br />Tel: (021) 123-4567<br />WhatsApp: +62 812-3456-7890</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+   </div>
+   <script>
+      const growthChart = echarts.init(document.getElementById('chartGrowth'));
+      const distributionChart = echarts.init(document.getElementById('chartDistribution'));
+      growthChart.setOption({
+         animation: false,
+         tooltip: {
+            trigger: 'axis'
+         },
+         xAxis: {
+            type: 'category',
+            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+         },
+         yAxis: {
+            type: 'value'
+         },
+         series: [{
+            data: [120, 200, 150, 80, 70, 110],
+            type: 'line',
+            smooth: true,
+            color: '#22C55E'
+         }]
+      });
+      distributionChart.setOption({
+         animation: false,
+         tooltip: {
+            trigger: 'item'
+         },
+         series: [{
+            type: 'pie',
+            radius: ['40%', '70%'],
+            data: [{
+                  value: 40,
+                  name: 'Pohon Buah'
+               },
+               {
+                  value: 35,
+                  name: 'Pohon Peneduh'
+               },
+               {
+                  value: 25,
+                  name: 'Pohon Hias'
+               }
+            ],
+            color: ['#22C55E', '#3B82F6', '#8B5CF6']
+         }]
+      });
+      window.addEventListener('resize', function() {
+         growthChart.resize();
+         distributionChart.resize();
+      });
+   </script>

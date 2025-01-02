@@ -1,0 +1,47 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+  <main class="flex-1 p-4 md:ml-64">
+    <div class="px-8 py-6">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold">Dashboard Penanaman - Mari Hijaukan Bumi!</h1>
+        <div class="flex gap-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+          <h3 class="sm:text-lg font-semibold mb-2">Total Pohon (Target)</h3>
+          <div class="flex items-end gap-2">
+            <span class="sm:text-3xl font-bold">{{ total_trees }}/{{ target_trees }}</span>
+            <span class="text-green-500 sm:text-sm">{{ total_trees / target_trees * 100|round(2) }}% tercapai</span>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-lg font-semibold mb-2">Total User</h3>
+          <div class="flex items-end gap-2">
+            <span class="text-3xl font-bold">{{ total_users }}</span>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-lg font-semibold mb-2">Pending</h3>
+          <div class="flex items-end gap-2">
+            <span class="text-3xl font-bold">{{ pending_count }}</span>
+            <span class="text-green-500 text-sm">+8% <i class="fas fa-arrow-up"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h3 class="text-lg font-semibold mb-2">Top Contributor</h3>
+        <div class="space-y-4">
+          {% for contributor in top_contributors %}
+            <div class="flex items-center p-4 bg-green-50 rounded-lg">
+              <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold">{{ loop.index }}</div>
+              <div class="ml-4 flex-1">
+                <h4 class="font-semibold">{{ contributor.0 }}</h4>
+                <p class="text-sm text-gray-600">{{ contributor.1 }} pohon ditanam</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

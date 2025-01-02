@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="id"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard Penanaman | PohonKita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#22C55E" data-border-radius="small"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        <aside class="w-64 bg-custom text-white">
+            <div class="p-4">
+                <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PohonKita" class="h-8"/>
+            </div>
+            <nav class="mt-8">
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5 mb-4">
+                    <i class="fas fa-user w-5"></i>
+                    <span class="ml-3">Profil Saya</span>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-chart-line w-5"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 bg-white/10">
+                    <i class="fas fa-seedling w-5"></i>
+                    <span class="ml-3">Menanam</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-trophy w-5"></i>
+                    <span class="ml-3">Leaderboard</span>
+                </a>
+                <a href="#" class="flex items-center px-6 py-3 hover:bg-white/5">
+                    <i class="fas fa-info-circle w-5"></i>
+                    <span class="ml-3">Tentang Kami</span>
+                </a>
+            </nav>
+        </aside>
+        <main class="flex-1 overflow-auto">
+            <div class="px-8 py-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Katalog Pohon - Pilih Pohon Untuk Ditanam</h1>
+                    <div class="flex gap-4">
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold">Katalog Pohon</h3>
+                        <div class="flex gap-4">
+                            <select class="border-gray-200 rounded-button">
+                                <option>Semua Jenis</option>
+                                <option>Pohon Buah</option>
+                                <option>Pohon Peneduh</option>
+                                <option>Pohon Hias</option>
+                            </select>
+                            <select class="border-gray-200 rounded-button">
+                                <option>Semua Lokasi</option>
+                                <option>Dataran Tinggi</option>
+                                <option>Dataran Rendah</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-6">
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="https://creatie.ai/ai/api/search-image?query=A beautiful mango tree with lush green leaves and ripe mangoes hanging from its branches, photographed against a clear blue sky with white clouds. The tree appears healthy and well-maintained, showcasing its natural beauty and abundance.&width=400&height=300&flag=5248d3a5-f958-432d-a84f-79fd58138b14&flag=aafaefc5-34c1-4bd1-859d-696807a60934&flag=8ad78d03-db9a-4044-83fe-d205ac64eb99&flag=2aa4fd44-37d4-4d7c-8d3a-3c177362bef6&flag=a6d3cad8-096b-4eef-aa75-571b3b74c3bf&flag=2aa34fc7-5d3a-4bcd-8160-a5316133ce76&flag=20cd36db-37e3-4ea8-8a12-cb6ec7dcc432&flag=39ab0b3f-6b2e-4af5-b4d8-de43c9c30909" class="w-full h-48 object-cover" alt="Pohon Mangga"/>
+                            <div class="p-4">
+                                <h4 class="font-semibold mb-2">Pohon Mangga</h4>
+                                <p class="text-sm text-gray-600 mb-4">Pohon buah tropis dengan tinggi maksimal 15m</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Pohon Buah</span>
+                                    <button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="https://creatie.ai/ai/api/search-image?query=A majestic mahogany tree with a tall, straight trunk and spreading canopy of dark green leaves. The tree stands prominently against a clear sky, demonstrating its impressive size and shade-providing qualities.&width=400&height=300&flag=f99912da-be2d-440d-b9a7-33392444cf8f&flag=8fdedc26-41cf-4bd2-bae9-62a24a55c398&flag=05bb94eb-249c-477a-825e-5f31d88376a2&flag=632ddec1-2c2a-42e2-a9d5-f913c02ec54e&flag=32d89dbb-b8fb-4a0e-90c5-b9d6b0c7290f&flag=56d73782-6937-425e-a439-40e0ee457fc3&flag=842577a7-5ea0-4ff9-8d76-f64c598a4e7c&flag=2d947bc7-c7d1-4820-89b5-050b59401d56" class="w-full h-48 object-cover" alt="Pohon Mahoni"/>
+                            <div class="p-4">
+                                <h4 class="font-semibold mb-2">Pohon Mahoni</h4>
+                                <p class="text-sm text-gray-600 mb-4">Pohon peneduh dengan kayu berkualitas tinggi</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Pohon Peneduh</span>
+                                    <button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-lg overflow-hidden">
+                            <img src="https://creatie.ai/ai/api/search-image?query=A beautiful cherry blossom tree in full bloom, with delicate pink flowers covering its graceful branches. The tree is photographed against a soft, natural background that highlights its ornamental beauty.&width=400&height=300&flag=17704e18-2196-42b9-915c-2e6d6e275e70&flag=ac9617c0-a13b-4d03-82b0-091995112636&flag=5e8094f7-5e95-4c13-880b-f6148a07a3b1&flag=dc09b30a-8cdb-45a2-abd0-af71b084b232&flag=8a6b083c-d2e2-4748-afc3-7c9708d127b1&flag=5a8e9a49-caf1-4835-9b92-b112366effe9&flag=b63c8d28-2cbe-4a66-90e4-aad2259cbd1f&flag=20c6d5d1-be3e-4939-8d46-0c5776ae4695" class="w-full h-48 object-cover" alt="Pohon Sakura"/>
+                            <div class="p-4">
+                                <h4 class="font-semibold mb-2">Pohon Sakura</h4>
+                                <p class="text-sm text-gray-600 mb-4">Pohon hias dengan bunga merah muda cantik</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Pohon Hias</span>
+                                    <button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="border rounded-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A tall and majestic teak tree with large leaves and strong trunk, standing in a forest setting&flag=82050d4b-5fae-47d2-891e-a91f22b9b47f&flag=4ede0fad-9dbd-42e7-90e9-015603e280de" class="w-full h-48 object-cover" alt="Pohon Jati"/><div class="p-4"><h4 class="font-semibold mb-2">Pohon Jati</h4><p class="text-sm text-gray-600 mb-4">Pohon kayu berkualitas tinggi, cocok untuk investasi jangka panjang</p><div class="flex justify-between items-center"><span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Pohon Peneduh</span><button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button></div></div></div><div class="border rounded-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A beautiful rambutan tree full of red fruits hanging from its branches&flag=ed4f8eac-867a-41c5-9c45-2be98cb47675&flag=a8b6b468-7aec-40f0-b3b3-30780fd5366f" class="w-full h-48 object-cover" alt="Pohon Rambutan"/><div class="p-4"><h4 class="font-semibold mb-2">Pohon Rambutan</h4><p class="text-sm text-gray-600 mb-4">Pohon buah tropis yang mudah tumbuh di dataran rendah</p><div class="flex justify-between items-center"><span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Pohon Buah</span><button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button></div></div></div><div class="border rounded-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A beautiful frangipani tree with white and yellow flowers&flag=04da395a-7ffd-43bc-b020-c9ba7423a1c2&flag=9d1c4687-b01c-49b4-bab2-6e2cf728ab00" class="w-full h-48 object-cover" alt="Pohon Kamboja"/><div class="p-4"><h4 class="font-semibold mb-2">Pohon Kamboja</h4><p class="text-sm text-gray-600 mb-4">Pohon hias dengan bunga harum dan indah</p><div class="flex justify-between items-center"><span class="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded">Pohon Hias</span><button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button></div></div></div><div class="border rounded-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A tall and leafy rain tree providing wide shade coverage&flag=cbd2462f-01e9-4a74-b89d-f27703a4410f&flag=13c25ff7-71ee-40b2-bb6c-6bb701a4731f" class="w-full h-48 object-cover" alt="Pohon Trembesi"/><div class="p-4"><h4 class="font-semibold mb-2">Pohon Trembesi</h4><p class="text-sm text-gray-600 mb-4">Pohon peneduh dengan tajuk lebar dan rindang</p><div class="flex justify-between items-center"><span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Pohon Peneduh</span><button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button></div></div></div><div class="border rounded-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A durian tree with large fruits hanging from its branches&flag=44481f9b-b1cd-4666-a579-edb6a0333f4a&flag=1e898852-2eb6-4981-920c-d7d61d1054dc" class="w-full h-48 object-cover" alt="Pohon Durian"/><div class="p-4"><h4 class="font-semibold mb-2">Pohon Durian</h4><p class="text-sm text-gray-600 mb-4">Pohon buah dengan nilai ekonomi tinggi</p><div class="flex justify-between items-center"><span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Pohon Buah</span><button class="bg-custom text-white px-4 py-2 rounded-button">Pilih</button></div></div></div></div>
+                    <div class="flex justify-center mt-6">
+                        <nav class="flex gap-2"><button class="w-8 h-8 flex items-center justify-center rounded border"><i class="fas fa-chevron-left"></i></button><button class="w-8 h-8 flex items-center justify-center rounded bg-custom text-white">1</button><button class="w-8 h-8 flex items-center justify-center rounded border">2</button><button class="w-8 h-8 flex items-center justify-center rounded border">3</button><button class="w-8 h-8 flex items-center justify-center rounded border">4</button><button class="w-8 h-8 flex items-center justify-center rounded border">5</button><button class="w-8 h-8 flex items-center justify-center rounded border"><i class="fas fa-chevron-right"></i></button></nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        const growthChart = echarts.init(document.getElementById('chartGrowth'));
+        const distributionChart = echarts.init(document.getElementById('chartDistribution'));
+        growthChart.setOption({
+            animation: false,
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [120, 200, 150, 80, 70, 110],
+                type: 'line',
+                smooth: true,
+                color: '#22C55E'
+            }]
+        });
+        distributionChart.setOption({
+            animation: false,
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                data: [
+                    { value: 40, name: 'Pohon Buah' },
+                    { value: 35, name: 'Pohon Peneduh' },
+                    { value: 25, name: 'Pohon Hias' }
+                ],
+                color: ['#22C55E', '#3B82F6', '#8B5CF6']
+            }]
+        });
+        window.addEventListener('resize', function() {
+            growthChart.resize();
+            distributionChart.resize();
+        });
+    </script>

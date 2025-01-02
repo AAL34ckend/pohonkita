@@ -1,0 +1,44 @@
+{% extends 'dashboard-base.html' %}
+{% block content %}
+  <main class="flex-1 p-4 md:ml-64 pt-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="px-8 py-6">
+        <div class="flex justify-between items-center mb-8">
+          <h1 class="text-2xl font-bold">Leaderboard Penanaman</h1>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-semibold">Top Kontributor</h3>
+          </div>
+          <div class="space-y-4">
+            {% for user in leaderboard %}
+              <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">{{ user.rank }}</div>
+                <div class="ml-4 flex-1">
+                  <h4 class="font-semibold">{{ user.name }}</h4>
+                  <p class="text-sm text-gray-600">{{ user.trees_planted }} pohon ditanam</p>
+                </div>
+                <div class="flex items-center">
+                  <span class="font-semibold">{{ user.trees_planted }} pohon</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="mt-6 pt-6 border-t">
+            <h3 class="text-lg font-semibold mb-4">Peringkat Anda</h3>
+            <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+              <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">{{ current_user.rank }}</div>
+              <div class="ml-4 flex-1">
+                <h4 class="font-semibold">{{ current_user.name }}</h4>
+                <p class="text-sm text-gray-600">{{ current_user.trees_planted }} pohon ditanam</p>
+              </div>
+              <div class="flex items-center">
+                <span class="font-semibold">{{ current_user.trees_planted }} pohon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

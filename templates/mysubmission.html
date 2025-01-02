@@ -1,0 +1,58 @@
+{% extends 'dashboard-base.html' %}
+{% block content %}
+  <main class="flex-1 p-4 md:ml-64 pt-16">
+    <div class="px-4 sm:px-6 lg:px-8 py-8">
+      <div class="container mx-auto">
+        <h2 class="text-xl font-semibold mt-8 mb-4">Pengajuan Saya</h2>
+        <div class="hidden md:block">
+          <table class="table-auto w-full border">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="px-4 py-2 text-left">Nama Lengkap</th>
+                <th class="px-4 py-2 text-left">Kota</th>
+                <th class="px-4 py-2 text-left">Tanggal perencanaan</th>
+                <th class="px-4 py-2 text-left">Bibit</th>
+                <th class="px-4 py-2 text-left">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for submission in submissions %}
+                <tr class="border-b">
+                  <td class="px-4 py-2">{{ submission.full_name }}</td>
+                  <td class="px-4 py-2">{{ submission.city }}</td>
+                  <td class="px-4 py-2">{{ submission.planned_planting_date }}</td>
+                  <td class="px-4 py-2">{{ submission.required_seeds }}</td>
+                  <td class="px-4 py-2">
+                    <span class="bg-green-200 text-green-800 rounded px-3 py-1 text-sm">{{ submission.status }}</span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- Card layout for small screens -->
+        <div class="md:hidden space-y-4">
+          {% for submission in submissions %}
+            <div class="bg-white shadow rounded-lg p-4 border border-gray-200">
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-semibold">{{ submission.full_name }}</h3>
+                <span class="bg-green-200 text-green-800 rounded px-2 py-1 text-xs">{{ submission.status }}</span>
+              </div>
+              <div class="text-sm text-gray-600 space-y-1">
+                <p>
+                  <span class="font-medium">Kota:</span> {{ submission.city }}
+                </p>
+                <p>
+                  <span class="font-medium">Tanggal perencanaan:</span> {{ submission.planned_planting_date }}
+                </p>
+                <p>
+                  <span class="font-medium">Bibit:</span> {{ submission.required_seeds }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
